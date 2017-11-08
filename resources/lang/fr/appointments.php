@@ -1,0 +1,81 @@
+<?php
+return [
+	'title'							=> 'Prise de rendez-vous',
+	'date_debut'					=> 'Date de debut',
+	'date_fin'						=> 'Date de fin',
+	'id_prise'						=> 'Identifiant prise',
+	'type_rv'						=> 'Type de rendez-vous',
+	'list_quotas'					=> 'Liste des quotes de Rendez-vous',
+	'externalSubscriberId'			=> 'Réference',
+	'street_number_complement'		=> 'Adresse',
+	'ScheduleID'					=> 'Quota',
+	'ShiftDesc'						=> 'Heure RDV',
+	'gestion_prise_rdv'				=> 'Gestion des prises de rendez-vous',
+	'liste_rdv'						=> 'Liste des rendez-vous',
+	'rdv_en_cours'					=> 'Rendez-vous en cours',
+	'rdv_archive'					=> 'Rendez-archivés',
+	'rdvs'							=> 'Tous',
+	'ScheduleID'					=> 'ScheduleID',
+	'appointment_date'				=> 'Date de rendez-vous',
+	'id_not_exist'					=> 'Rendez-vous inexistent ou perimé',
+	'appointmentType'				=> 'Type de RDV',
+	'type'							=> 'Type client',
+	'customer_not_exist'			=> 'Client inconnu',
+	'adresse'						=> 'Adresse',
+	'client'						=> 'Client',
+	'delete_appointment'			=> 'Supprimer rendez-vous',
+	'change_appointmant'			=> 'Changer rendez-vous',
+	'take_appointment'				=> 'Prendre rendez-vous',
+	'actions'						=> 'Action',
+	'create_order_impossible'		=> 'Date de rendez-vous trop proche pour créer une commande, merci de respecter l`intervale 3 jours minimum',
+	'error_notyet_customer'			=> 'Cette commande est en cours d\'integration , un RVD ne peut être pris pour le moment',
+
+
+	'General'						=> [
+											'AppointmentDateNoChange'				=>' Date de Rendez-vous trop proche pour modification',
+											'ActionAppointmentInvalid' 				=> 'Action invalide pour ce type de rendez-vous',
+											'ActionInvalidvsAppointmentStatus'		=> 'Action invalide par rapport au statut de ce rendez-vous',
+											'ActionInvalidvsAppointmentDelayCode' 	=> 'Action invalide par rapport au motif délai de ce rendez-vous',
+											'CustomerNotExist'						=> 'Ce client n\'existe pas',
+											'SubscriberNumberInvalid'				=> 'Numéros Abonné invalide (ID Procable)',
+											'AppointmentInvalid'					=> 'Type de rendez-vous invalide',
+											'WorkOrderIdInvalid' 					=> 'WorkOrderId invalide',
+											'ScheduleIdInvalid'						=> 'ScheduleId format invalide',
+											'ExternalIdNotExiste'					=> 'Cet ExternalId n’existe pas',
+											'ExternalIdInvalid'						=> 'ExternalId invalide',
+											'symptomIvalid'							=> 'Des codes symptômes sont invalides pour ce type de rendez-vous',
+											'prestationInvalid'						=> 'Des codes de prestations sont invalides pour ce type de rendez-vous',
+											'NoAppointment'	 						=> 'Rendez-vous inexistant ou périmé',
+											'ScheduleIdUnavailable' 				=> 'ScheduleId inexistant',
+											'RetailerIdInvalid'						=> 'RetailerId invalide',
+											'VendorCodeInvalid'						=> 'VendorCode invalide',
+											'RetailerIdAndVendorCodeInvalid'		=> 'RetailerId et VendorCode invalide',
+											'IncompatibleStatut'					=> 'Le statut de l\'abonne, {statut client}, n\'est pas compatible avec la demande',
+											'UnhandledError'						=> 'Erreur non gérée',
+											'FormatParameterInvalid'				=> 'Paramètre invalide, format incorrect',
+	],
+
+	'GetCalendar'					=> [
+											'ConsultationPeriodTooLong' 			=> 'Période de consultation trop longue',
+											'StartDatePassed'						=> 'Date de début révolue',
+											'StartDateTooClose'						=> 'Date de début trop proche',
+											'StartDateTooFar' 						=> 'Date de début trop éloignée',
+											'StartDateLaterThanEndDate' 			=> 'Date de début postérieure à la date de fin',
+											'EndDateTooFar'							=> 'Date de fin trop éloignée',
+											'AddressIdInvalid'						=> 'Identifiant adresse invalide (ID Prise)',
+	],
+
+	'BookProspectAppointment' 		=> [
+											'AppointmentAlreadyExists'				=> 'Ce prospect dispose déjà d\'un rendez-vous (basé sur le ID BYT)',
+	],
+
+	'action'						=> [
+
+											'passe_cmd'								=> 'Passer Commande',
+											'show'									=> 'Detail',
+											'edit'									=> 'Editer',
+											'delete'								=> 'Supprimer',
+	],
+
+
+];

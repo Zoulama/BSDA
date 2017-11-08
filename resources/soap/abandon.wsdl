@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.numericable.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.numericable.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.numericable.com/">
+      <s:element name="AbandonCommandeTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="noabo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbandonCommandeTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AbandonCommandeTestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="AbandonCommandeResult" type="tns:ResponseOfAbandonCommandeState" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfAbandonCommandeState">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="statusAbandonCommande" type="tns:StatusAbandonCommande" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatusAbandonCommande">
+        <s:restriction base="s:string">
+          <s:enumeration value="Echec" />
+          <s:enumeration value="AbandonOk" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AbandonCommandeRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="noAbo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbandonCommandeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AbandonCommandeResult" type="tns:ResponseOfAbandonCommandeState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AbandonCommandeTestSoapIn">
+    <wsdl:part name="parameters" element="tns:AbandonCommandeTest" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeTestSoapOut">
+    <wsdl:part name="parameters" element="tns:AbandonCommandeTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeSoapIn">
+    <wsdl:part name="AbandonCommandeRequest" element="tns:AbandonCommandeRequest" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeSoapOut">
+    <wsdl:part name="AbandonCommandeResult" element="tns:AbandonCommandeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeTestHttpGetIn">
+    <wsdl:part name="retailerId" type="s:string" />
+    <wsdl:part name="vendorCode" type="s:string" />
+    <wsdl:part name="noabo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:AbandonCommandeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeTestHttpPostIn">
+    <wsdl:part name="retailerId" type="s:string" />
+    <wsdl:part name="vendorCode" type="s:string" />
+    <wsdl:part name="noabo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AbandonCommandeTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:AbandonCommandeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AbandonCommandeServiceSoap">
+    <wsdl:operation name="AbandonCommandeTest">
+      <wsdl:input message="tns:AbandonCommandeTestSoapIn" />
+      <wsdl:output message="tns:AbandonCommandeTestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceAbdCmd">
+    <wsdl:operation name="AbandonCommande">
+      <wsdl:input message="tns:AbandonCommandeSoapIn" />
+      <wsdl:output message="tns:AbandonCommandeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceAbdCmd2">
+    <wsdl:operation name="AbandonCommandeTest">
+      <wsdl:input message="tns:AbandonCommandeTestHttpGetIn" />
+      <wsdl:output message="tns:AbandonCommandeTestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceAbdCmd3">
+    <wsdl:operation name="AbandonCommandeTest">
+      <wsdl:input message="tns:AbandonCommandeTestHttpPostIn" />
+      <wsdl:output message="tns:AbandonCommandeTestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AbandonCommandeServiceSoap" type="tns:AbandonCommandeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbandonCommandeTest">
+      <soap:operation soapAction="http://www.numericable.com/AbandonCommandeTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAbdCmd" type="tns:ServiceAbdCmd">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbandonCommande">
+      <soap:operation soapAction="http://Nc.AbandonCommande.WebService/AbandonCommande" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AbandonCommandeServiceSoap12" type="tns:AbandonCommandeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbandonCommandeTest">
+      <soap12:operation soapAction="http://www.numericable.com/AbandonCommandeTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAbdCmd1" type="tns:ServiceAbdCmd">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AbandonCommande">
+      <soap12:operation soapAction="http://Nc.AbandonCommande.WebService/AbandonCommande" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAbdCmd2" type="tns:ServiceAbdCmd2">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AbandonCommandeTest">
+      <http:operation location="/AbandonCommandeTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAbdCmd3" type="tns:ServiceAbdCmd3">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AbandonCommandeTest">
+      <http:operation location="/AbandonCommandeTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AbandonCommandeService">
+    <wsdl:port name="AbandonCommandeServiceSoap" binding="tns:AbandonCommandeServiceSoap">
+      <soap:address location="http://abandon-commande.codepi-preprod.numericable.int/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceAbdCmd" binding="tns:ServiceAbdCmd">
+      <soap:address location="http://abandon-commande.codepi-preprod.numericable.int/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AbandonCommandeServiceSoap12" binding="tns:AbandonCommandeServiceSoap12">
+      <soap12:address location="http://abandon-commande.codepi-preprod.numericable.int/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceAbdCmd1" binding="tns:ServiceAbdCmd1">
+      <soap12:address location="http://wsmbcustomermanager.numericable.int/Nc.Appointment.WebService/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceAbdCmd2" binding="tns:ServiceAbdCmd2">
+      <http:address location="http://wsmbcustomermanager.numericable.int/Nc.Appointment.WebService/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceAbdCmd3" binding="tns:ServiceAbdCmd3">
+      <http:address location="http://wsmbcustomermanager.numericable.int/Nc.Appointment.WebService/Nc.AbandonCommande.WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

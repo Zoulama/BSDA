@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ncnumericable.fr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ncnumericable.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ncnumericable.fr/">
+      <s:element name="GetCustomerInfos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:CustomerRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CustomerRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Retailer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomerInfosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerInfosResult" type="tns:CustomerResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CustomerResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseStatus" type="tns:ResponseStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="tns:Customer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponseStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Civility" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndpointId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstallationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataInfos" type="tns:ArrayOfInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="TvInfos" type="tns:ArrayOfInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoipInfos" type="tns:ArrayOfInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="IadInfos" type="tns:ArrayOfEquipmentInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="StbInfos" type="tns:ArrayOfEquipmentInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScInfos" type="tns:ArrayOfEquipmentInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Info" nillable="true" type="tns:Info" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Info">
+        <s:attribute name="Service" type="s:string" />
+        <s:attribute name="EquipmentLink" type="s:string" />
+        <s:attribute name="BusinessCode" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfEquipmentInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EquipmentInfo" nillable="true" type="tns:EquipmentInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EquipmentInfo">
+        <s:attribute name="SerialNumber" type="s:string" />
+        <s:attribute name="DeliveryType" type="s:string" />
+        <s:attribute name="EquipmentLink" type="s:string" />
+        <s:attribute name="EquipmentType" type="s:string" />
+      </s:complexType>
+      <s:element name="GetCustomerInfosBis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:CustomerRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerInfosBisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerInfosBisResult" type="tns:CustomerResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEquipmentInfos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:EquipmentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EquipmentRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Retailer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VendorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentCategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEquipmentInfosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEquipmentInfosResult" type="tns:EquipmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EquipmentResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseStatus" type="tns:ResponseStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCustomerInfosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfos" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerInfosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerInfosBisSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfosBis" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerInfosBisSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerInfosBisResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentInfosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEquipmentInfos" />
+  </wsdl:message>
+  <wsdl:message name="GetEquipmentInfosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEquipmentInfosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetCustomerInfos">
+      <wsdl:input message="tns:GetCustomerInfosSoapIn" />
+      <wsdl:output message="tns:GetCustomerInfosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInfosBis">
+      <wsdl:input message="tns:GetCustomerInfosBisSoapIn" />
+      <wsdl:output message="tns:GetCustomerInfosBisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInfos">
+      <wsdl:input message="tns:GetEquipmentInfosSoapIn" />
+      <wsdl:output message="tns:GetEquipmentInfosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomerInfos">
+      <soap:operation soapAction="http://ncnumericable.fr/GetCustomerInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInfosBis">
+      <soap:operation soapAction="http://ncnumericable.fr/GetCustomerInfosBis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInfos">
+      <soap:operation soapAction="http://ncnumericable.fr/GetEquipmentInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomerInfos">
+      <soap12:operation soapAction="http://ncnumericable.fr/GetCustomerInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerInfosBis">
+      <soap12:operation soapAction="http://ncnumericable.fr/GetCustomerInfosBis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentInfos">
+      <soap12:operation soapAction="http://ncnumericable.fr/GetEquipmentInfos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://consolidation.codepi-preprod.numericable.int" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://prodwsmb.ncnumericable.com/Nc.Mb.Consolidation.WebService/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

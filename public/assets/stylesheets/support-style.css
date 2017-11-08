@@ -1,0 +1,105 @@
+/*
+.box .box-small{
+font-size: 21px;
+font-weight: 200;
+line-height: 18px;
+padding: 10px 15px; 
+}
+*/
+.control-left-label{
+    padding-left: 50px;
+    text-align: left;
+    padding-top: 5px;
+    width: 160px;
+}
+@media (max-width: 767px) {
+    .panel [class*="span"]{
+        width: 14.52991452991453%;
+        float: left;
+        margin-left: 2.564102564102564%;
+        min-height: 30px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+
+
+
+
+header .navbar .navbar-inner .user-menu .dropdown-toggle {
+      padding: 10px 15px 10px 15px; }
+
+
+
+    .clearable{
+        position:relative;
+    }
+    .data_field{
+        padding-right:17px; /* add space for the 'x' icon*/
+    }
+    span.icon_clear{
+        position:absolute;
+        right:10px;
+        margin-top: 7px;
+        /* now go with the styling */
+        cursor:pointer;
+        font: bold 1em sans-serif;
+        color:#8E8E8E;  
+    }
+    span.icon_clear:hover{
+        color:#0163AC;
+    }
+    
+.light_color_body{
+     background-position: 0 -9px;
+     background-color: #ECECEC;
+    }  
+.dark_color_body{
+     background-position: 0 -9px;
+     background-color: #333333;
+    } 
+.dark_blue_color_body{
+     background-position: 0 -9px;
+     background-color: #0D2231;
+    }
+
+.header_height {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+.footer_height {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+input.headqtyplus{ width:25px; height:25px;}
+input.headqtyminus { width:25px; height:25px;}
+input.footerqtyplus{ width:25px; height:25px;}
+input.footerqtyminus { width:25px; height:25px;}
+
+.chat form input[type="text"] {	
+border-left: 1px solid #D0D0D0;
+border-bottom: 1px solid #D0D0D0;
+padding-left: 12px;
+padding-top: 0px;
+padding-bottom: 0px;
+height: 30px;
+line-height: 30px; } 
+
+.navbar .menu-deroulant-app {
+    padding:0px;
+}
+.menu-deroulant-app > .dropdown-menu {
+    margin-top: 0px;
+}
+.navbar .nav > .menu-deroulant-app > .dropdown-menu:before , .navbar .nav > .menu-deroulant-app > .dropdown-menu:after {
+    border: none;
+    content: none;
+}
+header .navbar .centerDropdown {
+    left: 0;
+    right: auto;
+}

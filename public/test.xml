@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ct:messageSuiviCommande xmlns:ct="http://completel.com/suiviCommande/ct">
+<ct:enTete typeMessage="CR_CPTL" dateMessage="2017-07-10T12:42:14"/>
+
+<suiv:commande xmlns:suiv="http://completel.com/suiviCommande/suiviCommandecompletelTHD">
+    <suiv:idCommande>CPD4</suiv:idCommande>
+    <suiv:etape code="CR_CPTL" typeAction="MOD" statut="OK" date="2017-07-10T12:41:32.376+02:00"/>
+    <suiv:infosComplementaires>
+        <suiv:idService>H3011-00040-001</suiv:idService>
+    </suiv:infosComplementaires>
+    <suiv:erreur codeErreur="" messageErreur=""/>
+</suiv:commande>
+</ct:messageSuiviCommande>

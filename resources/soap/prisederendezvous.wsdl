@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.numericable.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.numericable.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.numericable.com/">
+      <s:element name="GetCalendarRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="accomodationId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:date"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:date"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AppointmentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="RACC"/>
+          <s:enumeration value="RACCLM"/>
+          <s:enumeration value="RACCDELTA"/>
+          <s:enumeration value="RACCPRO"/>
+          <s:enumeration value="SAV"/>
+          <s:enumeration value="SAVLM"/>
+          <s:enumeration value="SAVDELTA"/>
+          <s:enumeration value="SAVPRO"/>
+          <s:enumeration value="PRESTA"/>
+          <s:enumeration value="PRESTALM"/>
+          <s:enumeration value="PRESTADELTA"/>
+          <s:enumeration value="PRESTAPRO"/>
+          <s:enumeration value="RACCCLEM"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCalendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCalendarResult" type="tns:ResponseOfGetCalendar"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfGetCalendar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="calendar" type="tns:Calendar"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Calendar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduleID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CalendarTypeDesc" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftDesc" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCalendarPrestaRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="externalSubscriberId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:date"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:date"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCalendarPrestaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCalendarResult" type="tns:ResponseOfGetCalendar"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookCustomerAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="noAbo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="commentaire" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="symptom" type="tns:Symptom"/>
+            <s:element minOccurs="0" maxOccurs="1" name="acts" type="tns:ArrayOfAct"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Symptom">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Service" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Frequency" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Reiteration" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Problem" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Act">
+            <s:complexType>
+              <s:attribute name="action" type="tns:Action"/>
+              <s:attribute name="id" type="s:string"/>
+              <s:attribute name="type" type="s:string"/>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Action">
+        <s:restriction base="s:string">
+          <s:enumeration value="ADD"/>
+          <s:enumeration value="NONE"/>
+          <s:enumeration value="REMOVE"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="BookCustomerAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookCustomerAppointmentResult" type="tns:ResponseOfBookCustomerAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfBookCustomerAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+          <s:element minOccurs="0" maxOccurs="1" name="workOrderId" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Status">
+        <s:restriction base="s:string">
+          <s:enumeration value="Echec"/>
+          <s:enumeration value="Ok"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ChangeCustomerAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="noAbo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="workOrderId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="commentaire" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+            <s:element minOccurs="0" maxOccurs="1" name="symptom" type="tns:Symptom"/>
+            <s:element minOccurs="0" maxOccurs="1" name="acts" type="tns:ArrayOfAct"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCustomerAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeCustomerAppointmentResult" type="tns:ResponseOfChangeCustomerAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfChangeCustomerAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="newWorkOrderId" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SuspendCustomerAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="noAbo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="workOrderId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SuspendCustomerAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SuspendCustomerAppointmentResult" type="tns:ResponseOfSuspendCustomerAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfSuspendCustomerAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveCustomerAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="noAbo" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="workOrderId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="appointmentType" type="tns:AppointmentType"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCustomerAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveCustomerAppointmentResult" type="tns:ResponseOfRemoveCustomerAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfRemoveCustomerAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BookProspectAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="externalSubscriberId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookProspectAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookProspectAppointmentResult" type="tns:ResponseOfBookProspectAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfBookProspectAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ChangeProspectAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="externalSubscriberId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeProspectAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangeProspectAppointmentResult" type="tns:ResponseOfProspectChangeAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfProspectChangeAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveProspectAppointmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retailerId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="vendorCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="externalSubscriberId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveProspectAppointmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveProspectAppointmentResult" type="tns:ResponseOfRemoveProspectAppointment"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseOfRemoveProspectAppointment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="statusAppointment" type="tns:Status"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCalendarSoapIn">
+    <wsdl:part name="GetCalendarRequest" element="tns:GetCalendarRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetCalendarSoapOut">
+    <wsdl:part name="GetCalendarResult" element="tns:GetCalendarResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCalendarPrestaSoapIn">
+    <wsdl:part name="GetCalendarPrestaRequest" element="tns:GetCalendarPrestaRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetCalendarPrestaSoapOut">
+    <wsdl:part name="GetCalendarPrestaResult" element="tns:GetCalendarPrestaResponse"/>
+  </wsdl:message>
+  <wsdl:message name="BookCustomerAppointmentSoapIn">
+    <wsdl:part name="BookCustomerAppointmentRequest" element="tns:BookCustomerAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BookCustomerAppointmentSoapOut">
+    <wsdl:part name="BookCustomerAppointmentResult" element="tns:BookCustomerAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeCustomerAppointmentSoapIn">
+    <wsdl:part name="ChangeCustomerAppointmentRequest" element="tns:ChangeCustomerAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeCustomerAppointmentSoapOut">
+    <wsdl:part name="ChangeCustomerAppointmentResult" element="tns:ChangeCustomerAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SuspendCustomerAppointmentSoapIn">
+    <wsdl:part name="SuspendCustomerAppointmentRequest" element="tns:SuspendCustomerAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SuspendCustomerAppointmentSoapOut">
+    <wsdl:part name="SuspendCustomerAppointmentResult" element="tns:SuspendCustomerAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveCustomerAppointmentSoapIn">
+    <wsdl:part name="RemoveCustomerAppointmentRequest" element="tns:RemoveCustomerAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveCustomerAppointmentSoapOut">
+    <wsdl:part name="RemoveCustomerAppointmentResult" element="tns:RemoveCustomerAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="BookProspectAppointmentSoapIn">
+    <wsdl:part name="BookProspectAppointmentRequest" element="tns:BookProspectAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="BookProspectAppointmentSoapOut">
+    <wsdl:part name="BookProspectAppointmentResult" element="tns:BookProspectAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeProspectAppointmentSoapIn">
+    <wsdl:part name="ChangeProspectAppointmentRequest" element="tns:ChangeProspectAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeProspectAppointmentSoapOut">
+    <wsdl:part name="ChangeProspectAppointmentResult" element="tns:ChangeProspectAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveProspectAppointmentSoapIn">
+    <wsdl:part name="RemoveProspectAppointmentRequest" element="tns:RemoveProspectAppointmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="RemoveProspectAppointmentSoapOut">
+    <wsdl:part name="RemoveProspectAppointmentResult" element="tns:RemoveProspectAppointmentResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceAppointment">
+    <wsdl:operation name="GetCalendar">
+      <wsdl:input message="tns:GetCalendarSoapIn"/>
+      <wsdl:output message="tns:GetCalendarSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarPresta">
+      <wsdl:input message="tns:GetCalendarPrestaSoapIn"/>
+      <wsdl:output message="tns:GetCalendarPrestaSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="BookCustomerAppointment">
+      <wsdl:input message="tns:BookCustomerAppointmentSoapIn"/>
+      <wsdl:output message="tns:BookCustomerAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCustomerAppointment">
+      <wsdl:input message="tns:ChangeCustomerAppointmentSoapIn"/>
+      <wsdl:output message="tns:ChangeCustomerAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendCustomerAppointment">
+      <wsdl:input message="tns:SuspendCustomerAppointmentSoapIn"/>
+      <wsdl:output message="tns:SuspendCustomerAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCustomerAppointment">
+      <wsdl:input message="tns:RemoveCustomerAppointmentSoapIn"/>
+      <wsdl:output message="tns:RemoveCustomerAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="BookProspectAppointment">
+      <wsdl:input message="tns:BookProspectAppointmentSoapIn"/>
+      <wsdl:output message="tns:BookProspectAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProspectAppointment">
+      <wsdl:input message="tns:ChangeProspectAppointmentSoapIn"/>
+      <wsdl:output message="tns:ChangeProspectAppointmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProspectAppointment">
+      <wsdl:input message="tns:RemoveProspectAppointmentSoapIn"/>
+      <wsdl:output message="tns:RemoveProspectAppointmentSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceAppointment2"/>
+  <wsdl:portType name="ServiceAppointment3"/>
+  <wsdl:binding name="ServiceAppointment" type="tns:ServiceAppointment">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetCalendar">
+      <soap:operation soapAction="http://www.numericable.com/GetCalendar" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarPresta">
+      <soap:operation soapAction="http://www.numericable.com/GetCalendarPresta" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookCustomerAppointment">
+      <soap:operation soapAction="http://www.numericable.com/BookCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCustomerAppointment">
+      <soap:operation soapAction="http://www.numericable.com/ChangeCutomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendCustomerAppointment">
+      <soap:operation soapAction="http://www.numericable.com/SuspendCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCustomerAppointment">
+      <soap:operation soapAction="http://www.numericable.com/RemoveCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookProspectAppointment">
+      <soap:operation soapAction="http://www.numericable.com/BookProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProspectAppointment">
+      <soap:operation soapAction="http://www.numericable.com/ChangeProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProspectAppointment">
+      <soap:operation soapAction="http://www.numericable.com/RemoveProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAppointment1" type="tns:ServiceAppointment">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetCalendar">
+      <soap12:operation soapAction="http://www.numericable.com/GetCalendar" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalendarPresta">
+      <soap12:operation soapAction="http://www.numericable.com/GetCalendarPresta" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookCustomerAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/BookCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCustomerAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/ChangeCutomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SuspendCustomerAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/SuspendCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCustomerAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/RemoveCustomerAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookProspectAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/BookProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeProspectAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/ChangeProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveProspectAppointment">
+      <soap12:operation soapAction="http://www.numericable.com/RemoveProspectAppointment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAppointment2" type="tns:ServiceAppointment2">
+    <http:binding verb="GET"/>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceAppointment3" type="tns:ServiceAppointment3">
+    <http:binding verb="POST"/>
+  </wsdl:binding>
+  <wsdl:service name="Appointment">
+     <wsdl:port name="ServiceAppointment" binding="tns:ServiceAppointment">
+      <soap:address location="http://appointment.codepi.numericable.int"/>
+    </wsdl:port>
+     <wsdl:port name="ServiceAppointment1" binding="tns:ServiceAppointment1">
+      <soap12:address location="http://appointment.bytel.numericable.int/Nc.Appointment.WebService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceAppointment2" binding="tns:ServiceAppointment2">
+      <http:address location="http://appointment.bytel.numericable.int/Nc.Appointment.WebService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceAppointment3" binding="tns:ServiceAppointment3">
+      <http:address location="http://appointment.bytel.numericable.int/Nc.Appointment.WebService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

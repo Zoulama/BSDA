@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ncnumericable.com/Eligibilite" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.ncnumericable.com/Eligibilite" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ncnumericable.com/Eligibilite">
+      <s:element name="EligibiliteRA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdRA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteRAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteRAResult" type="tns:ReponseEligibiliteRA" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReponseEligibiliteRA">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise" type="tns:Prise" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReponseEligibilite">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodeRetour" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="LibelleErreur" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteDetailPriseMB">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise" type="tns:CaracteristiquesDetailPriseMB" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CaracteristiquesDetailPriseMB">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeLogement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionnementPB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CDS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secteur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypePB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raccordabilite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteTV" type="tns:FormatageEligibiliteTV" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteNET_VOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteNET" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteVOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteNET_VOIP" type="tns:FormatageEligibiliteNET_VOIP" />
+          <s:element minOccurs="0" maxOccurs="1" name="HORSRESEAU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPAGNIE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrigineParc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTRATSA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodePostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomVille" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeRivoli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Etage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escalier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MontantRefaction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServicePayeParGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FraisInstallationPayesParGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecteurComptable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeTvaRefaction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeZoneDeVente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoneDeVente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZNE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelfInstall" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexacle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexapost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexavia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="X" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Y" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComparatifADSL" type="tns:ComparatifsADSL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FormatageEligibiliteTV">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Analogique" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumMoins" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Num" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumPlus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VOD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEFIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DVBT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FormatageEligibiliteNET_VOIP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Net_10Mb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Net_20Mb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Net_30Mb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Net_100Mb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoIP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ComparatifsADSL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTVOrange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTVFree" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTVSFR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTVCompletel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualiteADSLTVBouygues" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Affaiblissement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Debit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseInformationTechniquePrise2">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise2" type="tns:ClasseInformationTechniquePrise2" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClasseInformationTechniquePrise2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplementAdresseRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeLogement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatutConnectivite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionnementPB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CDS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secteur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypePB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Frequence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoReseau" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modulation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Debit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseCompagnie">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Compagnie" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteCodePostal">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Villes" type="tns:ArrayOfVilleInsee" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfVilleInsee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VilleInsee" nillable="true" type="tns:VilleInsee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VilleInsee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomVille" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteCommune">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RuesEligibles" type="tns:ArrayOfRue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfRue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Rue" nillable="true" type="tns:Rue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Rue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NomRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteRue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumerosRue" type="tns:ArrayOfAdresseRue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAdresseRue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdresseRue" nillable="true" type="tns:AdresseRue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AdresseRue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroRue" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteNumeroRue">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="GeoLocalisationRue" type="tns:ArrayOfDetailRue" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfDetailRue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetailRue" nillable="true" type="tns:DetailRue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetailRue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escalier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Etage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteLogement">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise" type="tns:Prise" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Prise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponsePlanDeFrequence">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="villes" type="tns:ArrayOfVillePlanDeFrequence" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfVillePlanDeFrequence">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VillePlanDeFrequence" nillable="true" type="tns:VillePlanDeFrequence" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VillePlanDeFrequence">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="numeroReseau" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="frequenceDistallation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codePostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codeInsee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nomVille" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteLogementNearnet">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPriseNearnet" type="tns:PriseNearnet" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PriseNearnet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoneEligibilite" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibilitePrise">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise" type="tns:CaracteristiquesPrise" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CaracteristiquesPrise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeLogement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionnementPB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raccordabilite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteTV" type="tns:FormatageEligibiliteTV" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteNET_VOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteNET" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteVOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteNET_VOIP" type="tns:FormatageEligibiliteNET_VOIP" />
+          <s:element minOccurs="0" maxOccurs="1" name="HORSRESEAU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPAGNIE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReponseEligibiliteDetailPrise">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReponseEligibilite">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="DetailPrise" type="tns:CaracteristiquesDetailPrise" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CaracteristiquesDetailPrise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeLogement" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PositionnementPB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CDS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secteur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypePB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raccordabilite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteTV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteTV" type="tns:FormatageEligibiliteTV" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeEligibiliteNET_VOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteNET" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibiliteVOIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailEligibiliteNET_VOIP" type="tns:FormatageEligibiliteNET_VOIP" />
+          <s:element minOccurs="0" maxOccurs="1" name="HORSRESEAU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPAGNIE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrigineParc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTRATSA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodePostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomVille" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeRivoli" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomRue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Etage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escalier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MontantRefaction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServicePayeParGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FraisInstallationPayesParGestionnaire" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecteurComptable" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeTvaRefaction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeZoneDeVente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZoneDeVente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZNE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelfInstall" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexacle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexapost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hexavia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="X" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Y" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComparatifADSL" type="tns:ComparatifsADSL" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Compagnie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompagnieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompagnieResult" type="tns:ReponseCompagnie" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteCodePostal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodePostal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteCodePostalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteCodePostalResult" type="tns:ReponseEligibiliteCodePostal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteCommune">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteCommuneResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteCommuneResult" type="tns:ReponseEligibiliteCommune" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteDetailPrise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteDetailPriseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteDetailPriseResult" type="tns:ReponseEligibiliteDetailPrise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteDetailPriseMB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteDetailPriseMBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteDetailPriseMBResult" type="tns:ReponseEligibiliteDetailPriseMB" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteLogement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Escalier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Etage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteLogementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteLogementResult" type="tns:ReponseEligibiliteLogement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteNumeroRue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Batiment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteNumeroRueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteNumeroRueResult" type="tns:ReponseEligibiliteNumeroRue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibilitePrise">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibilitePriseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibilitePriseResult" type="tns:ReponseEligibilitePrise" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteRue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteRueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteRueResult" type="tns:ReponseEligibiliteRue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteLogementNearnet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeInsee" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodeRIVOLI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumeroRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ComplementRue" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Typologie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EligibiliteLogementNearnetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EligibiliteLogementNearnetResult" type="tns:ReponseEligibiliteLogementNearnet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformationTechniquePrise2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IdentifiantPrise" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformationTechniquePrise2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformationTechniquePrise2Result" type="tns:ReponseInformationTechniquePrise2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlanDeFrequence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Identifiant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlanDeFrequenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlanDeFrequenceResult" type="tns:ReponsePlanDeFrequence" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupervisionNagios">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupervisionNagiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SupervisionNagiosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReponseEligibiliteRA" nillable="true" type="tns:ReponseEligibiliteRA" />
+      <s:element name="ReponseCompagnie" nillable="true" type="tns:ReponseCompagnie" />
+      <s:element name="ReponseEligibiliteCodePostal" nillable="true" type="tns:ReponseEligibiliteCodePostal" />
+      <s:element name="ReponseEligibiliteCommune" nillable="true" type="tns:ReponseEligibiliteCommune" />
+      <s:element name="ReponseEligibiliteDetailPrise" nillable="true" type="tns:ReponseEligibiliteDetailPrise" />
+      <s:element name="ReponseEligibiliteDetailPriseMB" nillable="true" type="tns:ReponseEligibiliteDetailPriseMB" />
+      <s:element name="ReponseEligibiliteLogement" nillable="true" type="tns:ReponseEligibiliteLogement" />
+      <s:element name="ReponseEligibiliteNumeroRue" nillable="true" type="tns:ReponseEligibiliteNumeroRue" />
+      <s:element name="ReponseEligibilitePrise" nillable="true" type="tns:ReponseEligibilitePrise" />
+      <s:element name="ReponseEligibiliteRue" nillable="true" type="tns:ReponseEligibiliteRue" />
+      <s:element name="ReponseEligibiliteLogementNearnet" nillable="true" type="tns:ReponseEligibiliteLogementNearnet" />
+      <s:element name="ReponseInformationTechniquePrise2" nillable="true" type="tns:ReponseInformationTechniquePrise2" />
+      <s:element name="ReponsePlanDeFrequence" nillable="true" type="tns:ReponsePlanDeFrequence" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EligibiliteRASoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteRA" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRASoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteRAResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieSoapIn">
+    <wsdl:part name="parameters" element="tns:Compagnie" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieSoapOut">
+    <wsdl:part name="parameters" element="tns:CompagnieResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteCodePostal" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteCodePostalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteCommune" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteCommuneResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteDetailPrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteDetailPriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteDetailPriseMB" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteDetailPriseMBResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteLogement" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteLogementResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteNumeroRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteNumeroRueResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibilitePrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibilitePriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteRueResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetSoapIn">
+    <wsdl:part name="parameters" element="tns:EligibiliteLogementNearnet" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetSoapOut">
+    <wsdl:part name="parameters" element="tns:EligibiliteLogementNearnetResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2SoapIn">
+    <wsdl:part name="parameters" element="tns:InformationTechniquePrise2" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2SoapOut">
+    <wsdl:part name="parameters" element="tns:InformationTechniquePrise2Response" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceSoapIn">
+    <wsdl:part name="parameters" element="tns:PlanDeFrequence" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceSoapOut">
+    <wsdl:part name="parameters" element="tns:PlanDeFrequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupervisionNagiosSoapIn">
+    <wsdl:part name="parameters" element="tns:SupervisionNagios" />
+  </wsdl:message>
+  <wsdl:message name="SupervisionNagiosSoapOut">
+    <wsdl:part name="parameters" element="tns:SupervisionNagiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRAHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdRA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRAHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteRA" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseCompagnie" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodePostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteCodePostal" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteCommune" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteDetailPrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteDetailPriseMB" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Batiment" type="s:string" />
+    <wsdl:part name="Escalier" type="s:string" />
+    <wsdl:part name="Etage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteLogement" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Batiment" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteNumeroRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibilitePrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Typologie" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteLogementNearnet" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2HttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2HttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponseInformationTechniquePrise2" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceHttpGetIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceHttpGetOut">
+    <wsdl:part name="Body" element="tns:ReponsePlanDeFrequence" />
+  </wsdl:message>
+  <wsdl:message name="SupervisionNagiosHttpGetIn" />
+  <wsdl:message name="SupervisionNagiosHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRAHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdRA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRAHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteRA" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompagnieHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseCompagnie" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodePostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCodePostalHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteCodePostal" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteCommuneHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteCommune" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteDetailPrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteDetailPriseMBHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteDetailPriseMB" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Batiment" type="s:string" />
+    <wsdl:part name="Escalier" type="s:string" />
+    <wsdl:part name="Etage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteLogement" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Batiment" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteNumeroRueHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteNumeroRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibilitePriseHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibilitePrise" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteRueHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteRue" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="CodeInsee" type="s:string" />
+    <wsdl:part name="CodeRIVOLI" type="s:string" />
+    <wsdl:part name="NumeroRue" type="s:string" />
+    <wsdl:part name="ComplementRue" type="s:string" />
+    <wsdl:part name="Typologie" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EligibiliteLogementNearnetHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseEligibiliteLogementNearnet" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2HttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+    <wsdl:part name="IdentifiantPrise" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InformationTechniquePrise2HttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponseInformationTechniquePrise2" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceHttpPostIn">
+    <wsdl:part name="Identifiant" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlanDeFrequenceHttpPostOut">
+    <wsdl:part name="Body" element="tns:ReponsePlanDeFrequence" />
+  </wsdl:message>
+  <wsdl:message name="SupervisionNagiosHttpPostIn" />
+  <wsdl:message name="SupervisionNagiosHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="MARQUE_BLANCHESoap">
+    <wsdl:operation name="EligibiliteRA">
+      <wsdl:input message="tns:EligibiliteRASoapIn" />
+      <wsdl:output message="tns:EligibiliteRASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <wsdl:input message="tns:CompagnieSoapIn" />
+      <wsdl:output message="tns:CompagnieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <wsdl:input message="tns:EligibiliteCodePostalSoapIn" />
+      <wsdl:output message="tns:EligibiliteCodePostalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <wsdl:input message="tns:EligibiliteCommuneSoapIn" />
+      <wsdl:output message="tns:EligibiliteCommuneSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <wsdl:input message="tns:EligibiliteDetailPriseSoapIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <wsdl:input message="tns:EligibiliteDetailPriseMBSoapIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseMBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <wsdl:input message="tns:EligibiliteLogementSoapIn" />
+      <wsdl:output message="tns:EligibiliteLogementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <wsdl:input message="tns:EligibiliteNumeroRueSoapIn" />
+      <wsdl:output message="tns:EligibiliteNumeroRueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <wsdl:input message="tns:EligibilitePriseSoapIn" />
+      <wsdl:output message="tns:EligibilitePriseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <wsdl:input message="tns:EligibiliteRueSoapIn" />
+      <wsdl:output message="tns:EligibiliteRueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <wsdl:input message="tns:EligibiliteLogementNearnetSoapIn" />
+      <wsdl:output message="tns:EligibiliteLogementNearnetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <wsdl:input message="tns:InformationTechniquePrise2SoapIn" />
+      <wsdl:output message="tns:InformationTechniquePrise2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <wsdl:input message="tns:PlanDeFrequenceSoapIn" />
+      <wsdl:output message="tns:PlanDeFrequenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <wsdl:input message="tns:SupervisionNagiosSoapIn" />
+      <wsdl:output message="tns:SupervisionNagiosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MARQUE_BLANCHEHttpGet">
+    <wsdl:operation name="EligibiliteRA">
+      <wsdl:input message="tns:EligibiliteRAHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteRAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <wsdl:input message="tns:CompagnieHttpGetIn" />
+      <wsdl:output message="tns:CompagnieHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <wsdl:input message="tns:EligibiliteCodePostalHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteCodePostalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <wsdl:input message="tns:EligibiliteCommuneHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteCommuneHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <wsdl:input message="tns:EligibiliteDetailPriseHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <wsdl:input message="tns:EligibiliteDetailPriseMBHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseMBHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <wsdl:input message="tns:EligibiliteLogementHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteLogementHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <wsdl:input message="tns:EligibiliteNumeroRueHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteNumeroRueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <wsdl:input message="tns:EligibilitePriseHttpGetIn" />
+      <wsdl:output message="tns:EligibilitePriseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <wsdl:input message="tns:EligibiliteRueHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteRueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <wsdl:input message="tns:EligibiliteLogementNearnetHttpGetIn" />
+      <wsdl:output message="tns:EligibiliteLogementNearnetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <wsdl:input message="tns:InformationTechniquePrise2HttpGetIn" />
+      <wsdl:output message="tns:InformationTechniquePrise2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <wsdl:input message="tns:PlanDeFrequenceHttpGetIn" />
+      <wsdl:output message="tns:PlanDeFrequenceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <wsdl:input message="tns:SupervisionNagiosHttpGetIn" />
+      <wsdl:output message="tns:SupervisionNagiosHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MARQUE_BLANCHEHttpPost">
+    <wsdl:operation name="EligibiliteRA">
+      <wsdl:input message="tns:EligibiliteRAHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteRAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <wsdl:input message="tns:CompagnieHttpPostIn" />
+      <wsdl:output message="tns:CompagnieHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <wsdl:input message="tns:EligibiliteCodePostalHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteCodePostalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <wsdl:input message="tns:EligibiliteCommuneHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteCommuneHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <wsdl:input message="tns:EligibiliteDetailPriseHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <wsdl:input message="tns:EligibiliteDetailPriseMBHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteDetailPriseMBHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <wsdl:input message="tns:EligibiliteLogementHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteLogementHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <wsdl:input message="tns:EligibiliteNumeroRueHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteNumeroRueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <wsdl:input message="tns:EligibilitePriseHttpPostIn" />
+      <wsdl:output message="tns:EligibilitePriseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <wsdl:input message="tns:EligibiliteRueHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteRueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <wsdl:input message="tns:EligibiliteLogementNearnetHttpPostIn" />
+      <wsdl:output message="tns:EligibiliteLogementNearnetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <wsdl:input message="tns:InformationTechniquePrise2HttpPostIn" />
+      <wsdl:output message="tns:InformationTechniquePrise2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <wsdl:input message="tns:PlanDeFrequenceHttpPostIn" />
+      <wsdl:output message="tns:PlanDeFrequenceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <wsdl:input message="tns:SupervisionNagiosHttpPostIn" />
+      <wsdl:output message="tns:SupervisionNagiosHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MARQUE_BLANCHESoap" type="tns:MARQUE_BLANCHESoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EligibiliteRA">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteRA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/Compagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteCodePostal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteCommune" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteDetailPrise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteDetailPriseMB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteLogement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteNumeroRue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibilitePrise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteRue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteLogementNearnet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/InformationTechniquePrise2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/PlanDeFrequence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <soap:operation soapAction="http://www.ncnumericable.com/Eligibilite/SupervisionNagios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MARQUE_BLANCHESoap12" type="tns:MARQUE_BLANCHESoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EligibiliteRA">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteRA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/Compagnie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteCodePostal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteCommune" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteDetailPrise" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteDetailPriseMB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteLogement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteNumeroRue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibilitePrise" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteRue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/EligibiliteLogementNearnet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/InformationTechniquePrise2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/PlanDeFrequence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <soap12:operation soapAction="http://www.ncnumericable.com/Eligibilite/SupervisionNagios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MARQUE_BLANCHEHttpGet" type="tns:MARQUE_BLANCHEHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="EligibiliteRA">
+      <http:operation location="/EligibiliteRA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <http:operation location="/Compagnie" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <http:operation location="/EligibiliteCodePostal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <http:operation location="/EligibiliteCommune" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <http:operation location="/EligibiliteDetailPrise" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <http:operation location="/EligibiliteDetailPriseMB" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <http:operation location="/EligibiliteLogement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <http:operation location="/EligibiliteNumeroRue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <http:operation location="/EligibilitePrise" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <http:operation location="/EligibiliteRue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <http:operation location="/EligibiliteLogementNearnet" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <http:operation location="/InformationTechniquePrise2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <http:operation location="/PlanDeFrequence" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <http:operation location="/SupervisionNagios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MARQUE_BLANCHEHttpPost" type="tns:MARQUE_BLANCHEHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="EligibiliteRA">
+      <http:operation location="/EligibiliteRA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compagnie">
+      <http:operation location="/Compagnie" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCodePostal">
+      <http:operation location="/EligibiliteCodePostal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteCommune">
+      <http:operation location="/EligibiliteCommune" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPrise">
+      <http:operation location="/EligibiliteDetailPrise" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteDetailPriseMB">
+      <http:operation location="/EligibiliteDetailPriseMB" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogement">
+      <http:operation location="/EligibiliteLogement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteNumeroRue">
+      <http:operation location="/EligibiliteNumeroRue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibilitePrise">
+      <http:operation location="/EligibilitePrise" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteRue">
+      <http:operation location="/EligibiliteRue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EligibiliteLogementNearnet">
+      <http:operation location="/EligibiliteLogementNearnet" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationTechniquePrise2">
+      <http:operation location="/InformationTechniquePrise2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlanDeFrequence">
+      <http:operation location="/PlanDeFrequence" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupervisionNagios">
+      <http:operation location="/SupervisionNagios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MARQUE_BLANCHE">
+    <wsdl:port name="MARQUE_BLANCHESoap" binding="tns:MARQUE_BLANCHESoap">
+      <soap:address location="http://elligibility.codepi.numericable.int" />
+    </wsdl:port>
+    <wsdl:port name="MARQUE_BLANCHESoap12" binding="tns:MARQUE_BLANCHESoap12">
+      <soap12:address location="http://elica.numericable.fr/Numericable.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MARQUE_BLANCHEHttpGet" binding="tns:MARQUE_BLANCHEHttpGet">
+      <http:address location="http://elica.numericable.fr/Numericable.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MARQUE_BLANCHEHttpPost" binding="tns:MARQUE_BLANCHEHttpPost">
+      <http:address location="http://elica.numericable.fr/Numericable.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+

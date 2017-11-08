@@ -1,0 +1,3160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://ws.centile.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax277="http://bean.core.api.ws.centile.com/xsd" xmlns:ax276="http://bean.telephony.api.ws.centile.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax280="http://bean.routingCommunity.api.ws.centile.com/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.centile.com">
+    <wsdl:documentation>RoutingCommunity</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax281="http://bean.core.api.ws.centile.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bean.routingCommunity.api.ws.centile.com/xsd">
+            <xs:import namespace="http://bean.core.api.ws.centile.com/xsd"/>
+            <xs:complexType name="PBXTrunkingBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="allowedCodecs" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="authPassword" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="authUsername" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="callPolicy" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="callTimeout" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="checkAAAP" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="checkOriginatingSipHost" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="checkPolicyOnAssertedCallerID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="contactHostPorts" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="defaultPstn" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="forceCodecOrderIncomingCalls" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="forceCodecOrderOutgoingCalls" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="maxCalls" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="networkIDSIPGw" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="requestAuth" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rtpRedirection" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="sipHostPorts" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="PBXTrunkings">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax280:PBXTrunkingBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ForwardingBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="activated" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="assignedTo" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="externalDestination" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="forwardingID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="internalDestination" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="labelledDestination" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="noAnswerDelay" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="specificCaller" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="timeFilter" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="Forwardings">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax280:ForwardingBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CallBarringBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="applyToSMS" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="applyToVoiceCall" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="CallBarrings">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="RoutingCommunityBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="fullName" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="gateway" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="RoutingCommunitys">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax280:RoutingCommunityBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax282="http://bean.routingCommunity.api.ws.centile.com/xsd" xmlns:ax279="http://bean.telephony.api.ws.centile.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.centile.com">
+            <xs:import namespace="http://bean.telephony.api.ws.centile.com/xsd"/>
+            <xs:import namespace="http://bean.routingCommunity.api.ws.centile.com/xsd"/>
+            <xs:element name="setContext">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="admtiveDomainName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setContextResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPstnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isRegisteredInEnum" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPstnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PstnRanges"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePBXTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePBXTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePBXTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sipHostPorts" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkOriginatingSipHost" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="maxCallsP" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkPolicyOnAssertedCallerID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="allowedCodecs" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="authUsername" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="authPassword" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="requestAuth" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="callTimeout" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactHostPorts" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="callPolicy" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="networkIDSIPGw" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkAAA" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rtpRedirection" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="forceCodecOrderIncomingCalls" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="forceCodecOrderOutgoingCalls" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePBXTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:PBXTrunkingBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPBXTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkOriginatingSipHost" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="maxCallsP" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkPolicyOnAssertedCallerID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="authUsername" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="requestAuth" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPBXTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:PBXTrunkings"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPstnToPbxTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedPstnNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pbxTrunking" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPstnToPbxTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unAssignPstnToPbxTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedPstnNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pbxTrunking" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unAssignPstnToPbxTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignCallBarringToTrunk">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="extension" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignCallBarringToTrunkResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unassignCallBarringToTrunk">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="extension" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unassignCallBarringToTrunkResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPstn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pstnNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pstnRangeLabel" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pstnLabel" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPstnResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:Pstns"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createForwarding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="assignedTo" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="activated" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="internalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="externalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="labelledDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="specificCaller" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="timeFilter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noAnswerDelay" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createForwardingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:ForwardingBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteForwarding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteForwardingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getForwarding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="assignedTo" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="activated" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="internalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="externalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="labelledDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="specificCaller" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="timeFilter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noAnswerDelay" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getForwardingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:Forwardings"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createCallBarring">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="applyToVoiceCall" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="applyToSMS" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createCallBarringResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:CallBarringBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteCallBarring">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteCallBarringResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCallBarring">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCallBarringResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:CallBarrings"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateCallBarring">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="applyToVoiceCall" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="applyToSMS" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateCallBarringResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:CallBarringBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignCallBarringToCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="communityName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignCallBarringToCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unassignCallBarringToCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="communityName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="unassignCallBarringToCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createGateway">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sipHostPort" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="prefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="capacity" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="acceptLogicalTerminal" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="networkDomain" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactHostPort" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createGatewayResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:GatewayBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteGateway">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteGatewayResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateGateway">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sipHostPort" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="prefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="capacity" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="acceptLogicalTerminal" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="networkDomain" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactHostPort" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateGatewayResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:GatewayBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:GatewayGroupBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:GatewayGroupBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listGatewaysInGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedGatewayGroup" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="listGatewaysInGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setGatewaysInGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedGatewayGroup" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gateways" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setGatewaysInGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setOneGatewayInGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedGatewayGroup" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gateway" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="position" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setOneGatewayInGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPlmnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="camelCallControl" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPlmnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnRanges"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPlmnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isupGateway" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="camelCallControl" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPlmnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnRangeBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePlmnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePlmnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePlmnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedRangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePlmnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnRangeBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setCommunityContext">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="communityName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setCommunityContextResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPstnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isRegisteredInEnum" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPstnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PstnRangeBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePstnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deletePstnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePstnRange">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedRangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePstnRangeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PstnRangeBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPstnToAdmtiveDomain">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedPstnNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="admtiveDomain" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPstnToAdmtiveDomainResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PstnBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePstn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pstnLabel" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isExtraCustomCallerID" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePstnResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PstnBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPlmnPstnToAdmtiveDomain">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="admtiveDomain" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="assignPlmnPstnToAdmtiveDomainResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnPstnBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPlmnPstn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="number" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rangeLabel" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPlmnPstnResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnPstns"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePlmnPstn">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedNumber" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="activationStatus" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updatePlmnPstnResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:PlmnPstnBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateForwarding">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="activated" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="internalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="externalDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="labelledDestination" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="specificCaller" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="timeFilter" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="noAnswerDelay" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateForwardingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:ForwardingBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createRoutingCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fullName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gateway" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createRoutingCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:RoutingCommunityBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRoutingCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fullName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gateway" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRoutingCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:RoutingCommunitys"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateRoutingCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="selectedName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="fullName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="gateway" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateRoutingCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:RoutingCommunityBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteRoutingCommunity">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="deleteRoutingCommunityResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPBXTrunking">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sipHostPorts" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkOriginatingSipHost" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="maxCallsP" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkPolicyOnAssertedCallerID" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="allowedCodecs" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="authUsername" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="authPassword" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="requestAuth" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="callTimeout" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactHostPorts" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="callPolicy" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="networkIDSIPGw" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="checkAAA" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rtpRedirection" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="forceCodecOrderIncomingCalls" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="forceCodecOrderOutgoingCalls" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createPBXTrunkingResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax282:PBXTrunkingBean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getVersion">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getVersionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGatewayGroup">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGatewayGroupResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:GatewayGroups"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGateway">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="offset" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="length" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sipHostPort" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="prefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="capacity" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="acceptLogicalTerminal" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="networkDomain" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="contactHostPort" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGatewayResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax276:Gateways"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isConnected">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="isConnectedResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="login">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="loginResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logout">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="logoutResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:ax278="http://bean.core.api.ws.centile.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bean.telephony.api.ws.centile.com/xsd">
+            <xs:import namespace="http://bean.core.api.ws.centile.com/xsd"/>
+            <xs:complexType name="PstnRanges">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:PstnRangeBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PstnRangeBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="isRegisteredInEnum" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="Pstns">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:PstnBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PstnBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="admtiveDomain" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="isExtraCustomCallerID" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="number" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="pbxTrunking" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="pstnLabel" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="pstnRangeLabel" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="GatewayBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="acceptLogicalTerminal" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="capacity" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="contactHostPort" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="networkDomain" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="operatorPrefix" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="prefix" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="sipHostPort" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="GatewayGroupBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="PlmnRanges">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:PlmnRangeBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PlmnRangeBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="camelCallControl" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="isupGateway" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rangeEnd" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rangeStart" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="PlmnPstnBean">
+                <xs:complexContent>
+                    <xs:extension base="ax277:AbstractBean">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="activationStatus" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="admtiveDomain" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="isDefault" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="label" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="location" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="number" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="numberExtension" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="pbxTrunking" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="rangeLabel" nillable="true" type="xs:string"/>
+                            <xs:element minOccurs="0" name="type" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType name="PlmnPstns">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:PlmnPstnBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="GatewayGroups">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:GatewayGroupBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Gateways">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="elements" nillable="true" type="ax276:GatewayBean"/>
+                    <xs:element minOccurs="0" name="number" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bean.core.api.ws.centile.com/xsd">
+            <xs:complexType name="AbstractBean">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="logoutRequest">
+        <wsdl:part name="parameters" element="ns:logout"/>
+    </wsdl:message>
+    <wsdl:message name="logoutResponse">
+        <wsdl:part name="parameters" element="ns:logoutResponse"/>
+    </wsdl:message>
+    <wsdl:message name="isConnectedRequest">
+        <wsdl:part name="parameters" element="ns:isConnected"/>
+    </wsdl:message>
+    <wsdl:message name="isConnectedResponse">
+        <wsdl:part name="parameters" element="ns:isConnectedResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createForwardingRequest">
+        <wsdl:part name="parameters" element="ns:createForwarding"/>
+    </wsdl:message>
+    <wsdl:message name="createForwardingResponse">
+        <wsdl:part name="parameters" element="ns:createForwardingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateRoutingCommunityRequest">
+        <wsdl:part name="parameters" element="ns:updateRoutingCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="updateRoutingCommunityResponse">
+        <wsdl:part name="parameters" element="ns:updateRoutingCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setGatewaysInGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:setGatewaysInGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="setGatewaysInGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:setGatewaysInGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="assignPstnToPbxTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:assignPstnToPbxTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="assignPstnToPbxTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:assignPstnToPbxTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:createGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="createGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:createGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPBXTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:getPBXTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="getPBXTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:getPBXTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createCallBarringRequest">
+        <wsdl:part name="parameters" element="ns:createCallBarring"/>
+    </wsdl:message>
+    <wsdl:message name="createCallBarringResponse">
+        <wsdl:part name="parameters" element="ns:createCallBarringResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deletePstnRangeRequest">
+        <wsdl:part name="parameters" element="ns:deletePstnRange"/>
+    </wsdl:message>
+    <wsdl:message name="deletePstnRangeResponse">
+        <wsdl:part name="parameters" element="ns:deletePstnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deletePlmnRangeRequest">
+        <wsdl:part name="parameters" element="ns:deletePlmnRange"/>
+    </wsdl:message>
+    <wsdl:message name="deletePlmnRangeResponse">
+        <wsdl:part name="parameters" element="ns:deletePlmnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateGatewayRequest">
+        <wsdl:part name="parameters" element="ns:updateGateway"/>
+    </wsdl:message>
+    <wsdl:message name="updateGatewayResponse">
+        <wsdl:part name="parameters" element="ns:updateGatewayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deletePBXTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:deletePBXTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="deletePBXTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:deletePBXTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setContextRequest">
+        <wsdl:part name="parameters" element="ns:setContext"/>
+    </wsdl:message>
+    <wsdl:message name="setContextResponse">
+        <wsdl:part name="parameters" element="ns:setContextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getRoutingCommunityRequest">
+        <wsdl:part name="parameters" element="ns:getRoutingCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="getRoutingCommunityResponse">
+        <wsdl:part name="parameters" element="ns:getRoutingCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setOneGatewayInGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:setOneGatewayInGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="setOneGatewayInGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:setOneGatewayInGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createRoutingCommunityRequest">
+        <wsdl:part name="parameters" element="ns:createRoutingCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="createRoutingCommunityResponse">
+        <wsdl:part name="parameters" element="ns:createRoutingCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setCommunityContextRequest">
+        <wsdl:part name="parameters" element="ns:setCommunityContext"/>
+    </wsdl:message>
+    <wsdl:message name="setCommunityContextResponse">
+        <wsdl:part name="parameters" element="ns:setCommunityContextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteRoutingCommunityRequest">
+        <wsdl:part name="parameters" element="ns:deleteRoutingCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="deleteRoutingCommunityResponse">
+        <wsdl:part name="parameters" element="ns:deleteRoutingCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateCallBarringRequest">
+        <wsdl:part name="parameters" element="ns:updateCallBarring"/>
+    </wsdl:message>
+    <wsdl:message name="updateCallBarringResponse">
+        <wsdl:part name="parameters" element="ns:updateCallBarringResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePlmnPstnRequest">
+        <wsdl:part name="parameters" element="ns:updatePlmnPstn"/>
+    </wsdl:message>
+    <wsdl:message name="updatePlmnPstnResponse">
+        <wsdl:part name="parameters" element="ns:updatePlmnPstnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePstnRangeRequest">
+        <wsdl:part name="parameters" element="ns:updatePstnRange"/>
+    </wsdl:message>
+    <wsdl:message name="updatePstnRangeResponse">
+        <wsdl:part name="parameters" element="ns:updatePstnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:getGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="getGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:getGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createPlmnRangeRequest">
+        <wsdl:part name="parameters" element="ns:createPlmnRange"/>
+    </wsdl:message>
+    <wsdl:message name="createPlmnRangeResponse">
+        <wsdl:part name="parameters" element="ns:createPlmnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPstnRangeRequest">
+        <wsdl:part name="parameters" element="ns:getPstnRange"/>
+    </wsdl:message>
+    <wsdl:message name="getPstnRangeResponse">
+        <wsdl:part name="parameters" element="ns:getPstnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createPstnRangeRequest">
+        <wsdl:part name="parameters" element="ns:createPstnRange"/>
+    </wsdl:message>
+    <wsdl:message name="createPstnRangeResponse">
+        <wsdl:part name="parameters" element="ns:createPstnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePlmnRangeRequest">
+        <wsdl:part name="parameters" element="ns:updatePlmnRange"/>
+    </wsdl:message>
+    <wsdl:message name="updatePlmnRangeResponse">
+        <wsdl:part name="parameters" element="ns:updatePlmnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="listGatewaysInGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:listGatewaysInGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="listGatewaysInGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:listGatewaysInGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="unassignCallBarringToTrunkRequest">
+        <wsdl:part name="parameters" element="ns:unassignCallBarringToTrunk"/>
+    </wsdl:message>
+    <wsdl:message name="unassignCallBarringToTrunkResponse">
+        <wsdl:part name="parameters" element="ns:unassignCallBarringToTrunkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePBXTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:updatePBXTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="updatePBXTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:updatePBXTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPlmnPstnRequest">
+        <wsdl:part name="parameters" element="ns:getPlmnPstn"/>
+    </wsdl:message>
+    <wsdl:message name="getPlmnPstnResponse">
+        <wsdl:part name="parameters" element="ns:getPlmnPstnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="assignCallBarringToTrunkRequest">
+        <wsdl:part name="parameters" element="ns:assignCallBarringToTrunk"/>
+    </wsdl:message>
+    <wsdl:message name="assignCallBarringToTrunkResponse">
+        <wsdl:part name="parameters" element="ns:assignCallBarringToTrunkResponse"/>
+    </wsdl:message>
+    <wsdl:message name="assignPlmnPstnToAdmtiveDomainRequest">
+        <wsdl:part name="parameters" element="ns:assignPlmnPstnToAdmtiveDomain"/>
+    </wsdl:message>
+    <wsdl:message name="assignPlmnPstnToAdmtiveDomainResponse">
+        <wsdl:part name="parameters" element="ns:assignPlmnPstnToAdmtiveDomainResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPstnRequest">
+        <wsdl:part name="parameters" element="ns:getPstn"/>
+    </wsdl:message>
+    <wsdl:message name="getPstnResponse">
+        <wsdl:part name="parameters" element="ns:getPstnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="loginRequest">
+        <wsdl:part name="parameters" element="ns:login"/>
+    </wsdl:message>
+    <wsdl:message name="loginResponse">
+        <wsdl:part name="parameters" element="ns:loginResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getVersionRequest">
+        <wsdl:part name="parameters" element="ns:getVersion"/>
+    </wsdl:message>
+    <wsdl:message name="getVersionResponse">
+        <wsdl:part name="parameters" element="ns:getVersionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPlmnRangeRequest">
+        <wsdl:part name="parameters" element="ns:getPlmnRange"/>
+    </wsdl:message>
+    <wsdl:message name="getPlmnRangeResponse">
+        <wsdl:part name="parameters" element="ns:getPlmnRangeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getForwardingRequest">
+        <wsdl:part name="parameters" element="ns:getForwarding"/>
+    </wsdl:message>
+    <wsdl:message name="getForwardingResponse">
+        <wsdl:part name="parameters" element="ns:getForwardingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getCallBarringRequest">
+        <wsdl:part name="parameters" element="ns:getCallBarring"/>
+    </wsdl:message>
+    <wsdl:message name="getCallBarringResponse">
+        <wsdl:part name="parameters" element="ns:getCallBarringResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteCallBarringRequest">
+        <wsdl:part name="parameters" element="ns:deleteCallBarring"/>
+    </wsdl:message>
+    <wsdl:message name="deleteCallBarringResponse">
+        <wsdl:part name="parameters" element="ns:deleteCallBarringResponse"/>
+    </wsdl:message>
+    <wsdl:message name="assignPstnToAdmtiveDomainRequest">
+        <wsdl:part name="parameters" element="ns:assignPstnToAdmtiveDomain"/>
+    </wsdl:message>
+    <wsdl:message name="assignPstnToAdmtiveDomainResponse">
+        <wsdl:part name="parameters" element="ns:assignPstnToAdmtiveDomainResponse"/>
+    </wsdl:message>
+    <wsdl:message name="unAssignPstnToPbxTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:unAssignPstnToPbxTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="unAssignPstnToPbxTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:unAssignPstnToPbxTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:updateGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="updateGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:updateGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteGatewayGroupRequest">
+        <wsdl:part name="parameters" element="ns:deleteGatewayGroup"/>
+    </wsdl:message>
+    <wsdl:message name="deleteGatewayGroupResponse">
+        <wsdl:part name="parameters" element="ns:deleteGatewayGroupResponse"/>
+    </wsdl:message>
+    <wsdl:message name="unassignCallBarringToCommunityRequest">
+        <wsdl:part name="parameters" element="ns:unassignCallBarringToCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="unassignCallBarringToCommunityResponse">
+        <wsdl:part name="parameters" element="ns:unassignCallBarringToCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createPBXTrunkingRequest">
+        <wsdl:part name="parameters" element="ns:createPBXTrunking"/>
+    </wsdl:message>
+    <wsdl:message name="createPBXTrunkingResponse">
+        <wsdl:part name="parameters" element="ns:createPBXTrunkingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="createGatewayRequest">
+        <wsdl:part name="parameters" element="ns:createGateway"/>
+    </wsdl:message>
+    <wsdl:message name="createGatewayResponse">
+        <wsdl:part name="parameters" element="ns:createGatewayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="assignCallBarringToCommunityRequest">
+        <wsdl:part name="parameters" element="ns:assignCallBarringToCommunity"/>
+    </wsdl:message>
+    <wsdl:message name="assignCallBarringToCommunityResponse">
+        <wsdl:part name="parameters" element="ns:assignCallBarringToCommunityResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateForwardingRequest">
+        <wsdl:part name="parameters" element="ns:updateForwarding"/>
+    </wsdl:message>
+    <wsdl:message name="updateForwardingResponse">
+        <wsdl:part name="parameters" element="ns:updateForwardingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updatePstnRequest">
+        <wsdl:part name="parameters" element="ns:updatePstn"/>
+    </wsdl:message>
+    <wsdl:message name="updatePstnResponse">
+        <wsdl:part name="parameters" element="ns:updatePstnResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteGatewayRequest">
+        <wsdl:part name="parameters" element="ns:deleteGateway"/>
+    </wsdl:message>
+    <wsdl:message name="deleteGatewayResponse">
+        <wsdl:part name="parameters" element="ns:deleteGatewayResponse"/>
+    </wsdl:message>
+    <wsdl:message name="deleteForwardingRequest">
+        <wsdl:part name="parameters" element="ns:deleteForwarding"/>
+    </wsdl:message>
+    <wsdl:message name="deleteForwardingResponse">
+        <wsdl:part name="parameters" element="ns:deleteForwardingResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getGatewayRequest">
+        <wsdl:part name="parameters" element="ns:getGateway"/>
+    </wsdl:message>
+    <wsdl:message name="getGatewayResponse">
+        <wsdl:part name="parameters" element="ns:getGatewayResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="RoutingCommunityPortType">
+        <wsdl:operation name="logout">
+            <wsdl:input message="ns:logoutRequest" wsaw:Action="urn:logout"/>
+            <wsdl:output message="ns:logoutResponse" wsaw:Action="urn:logoutResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="isConnected">
+            <wsdl:input message="ns:isConnectedRequest" wsaw:Action="urn:isConnected"/>
+            <wsdl:output message="ns:isConnectedResponse" wsaw:Action="urn:isConnectedResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createForwarding">
+            <wsdl:input message="ns:createForwardingRequest" wsaw:Action="urn:createForwarding"/>
+            <wsdl:output message="ns:createForwardingResponse" wsaw:Action="urn:createForwardingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateRoutingCommunity">
+            <wsdl:input message="ns:updateRoutingCommunityRequest" wsaw:Action="urn:updateRoutingCommunity"/>
+            <wsdl:output message="ns:updateRoutingCommunityResponse" wsaw:Action="urn:updateRoutingCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setGatewaysInGatewayGroup">
+            <wsdl:input message="ns:setGatewaysInGatewayGroupRequest" wsaw:Action="urn:setGatewaysInGatewayGroup"/>
+            <wsdl:output message="ns:setGatewaysInGatewayGroupResponse" wsaw:Action="urn:setGatewaysInGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToPbxTrunking">
+            <wsdl:input message="ns:assignPstnToPbxTrunkingRequest" wsaw:Action="urn:assignPstnToPbxTrunking"/>
+            <wsdl:output message="ns:assignPstnToPbxTrunkingResponse" wsaw:Action="urn:assignPstnToPbxTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createGatewayGroup">
+            <wsdl:input message="ns:createGatewayGroupRequest" wsaw:Action="urn:createGatewayGroup"/>
+            <wsdl:output message="ns:createGatewayGroupResponse" wsaw:Action="urn:createGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPBXTrunking">
+            <wsdl:input message="ns:getPBXTrunkingRequest" wsaw:Action="urn:getPBXTrunking"/>
+            <wsdl:output message="ns:getPBXTrunkingResponse" wsaw:Action="urn:getPBXTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createCallBarring">
+            <wsdl:input message="ns:createCallBarringRequest" wsaw:Action="urn:createCallBarring"/>
+            <wsdl:output message="ns:createCallBarringResponse" wsaw:Action="urn:createCallBarringResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deletePstnRange">
+            <wsdl:input message="ns:deletePstnRangeRequest" wsaw:Action="urn:deletePstnRange"/>
+            <wsdl:output message="ns:deletePstnRangeResponse" wsaw:Action="urn:deletePstnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deletePlmnRange">
+            <wsdl:input message="ns:deletePlmnRangeRequest" wsaw:Action="urn:deletePlmnRange"/>
+            <wsdl:output message="ns:deletePlmnRangeResponse" wsaw:Action="urn:deletePlmnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateGateway">
+            <wsdl:input message="ns:updateGatewayRequest" wsaw:Action="urn:updateGateway"/>
+            <wsdl:output message="ns:updateGatewayResponse" wsaw:Action="urn:updateGatewayResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deletePBXTrunking">
+            <wsdl:input message="ns:deletePBXTrunkingRequest" wsaw:Action="urn:deletePBXTrunking"/>
+            <wsdl:output message="ns:deletePBXTrunkingResponse" wsaw:Action="urn:deletePBXTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setContext">
+            <wsdl:input message="ns:setContextRequest" wsaw:Action="urn:setContext"/>
+            <wsdl:output message="ns:setContextResponse" wsaw:Action="urn:setContextResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRoutingCommunity">
+            <wsdl:input message="ns:getRoutingCommunityRequest" wsaw:Action="urn:getRoutingCommunity"/>
+            <wsdl:output message="ns:getRoutingCommunityResponse" wsaw:Action="urn:getRoutingCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setOneGatewayInGatewayGroup">
+            <wsdl:input message="ns:setOneGatewayInGatewayGroupRequest" wsaw:Action="urn:setOneGatewayInGatewayGroup"/>
+            <wsdl:output message="ns:setOneGatewayInGatewayGroupResponse" wsaw:Action="urn:setOneGatewayInGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createRoutingCommunity">
+            <wsdl:input message="ns:createRoutingCommunityRequest" wsaw:Action="urn:createRoutingCommunity"/>
+            <wsdl:output message="ns:createRoutingCommunityResponse" wsaw:Action="urn:createRoutingCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setCommunityContext">
+            <wsdl:input message="ns:setCommunityContextRequest" wsaw:Action="urn:setCommunityContext"/>
+            <wsdl:output message="ns:setCommunityContextResponse" wsaw:Action="urn:setCommunityContextResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteRoutingCommunity">
+            <wsdl:input message="ns:deleteRoutingCommunityRequest" wsaw:Action="urn:deleteRoutingCommunity"/>
+            <wsdl:output message="ns:deleteRoutingCommunityResponse" wsaw:Action="urn:deleteRoutingCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateCallBarring">
+            <wsdl:input message="ns:updateCallBarringRequest" wsaw:Action="urn:updateCallBarring"/>
+            <wsdl:output message="ns:updateCallBarringResponse" wsaw:Action="urn:updateCallBarringResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnPstn">
+            <wsdl:input message="ns:updatePlmnPstnRequest" wsaw:Action="urn:updatePlmnPstn"/>
+            <wsdl:output message="ns:updatePlmnPstnResponse" wsaw:Action="urn:updatePlmnPstnResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstnRange">
+            <wsdl:input message="ns:updatePstnRangeRequest" wsaw:Action="urn:updatePstnRange"/>
+            <wsdl:output message="ns:updatePstnRangeResponse" wsaw:Action="urn:updatePstnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGatewayGroup">
+            <wsdl:input message="ns:getGatewayGroupRequest" wsaw:Action="urn:getGatewayGroup"/>
+            <wsdl:output message="ns:getGatewayGroupResponse" wsaw:Action="urn:getGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createPlmnRange">
+            <wsdl:input message="ns:createPlmnRangeRequest" wsaw:Action="urn:createPlmnRange"/>
+            <wsdl:output message="ns:createPlmnRangeResponse" wsaw:Action="urn:createPlmnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPstnRange">
+            <wsdl:input message="ns:getPstnRangeRequest" wsaw:Action="urn:getPstnRange"/>
+            <wsdl:output message="ns:getPstnRangeResponse" wsaw:Action="urn:getPstnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createPstnRange">
+            <wsdl:input message="ns:createPstnRangeRequest" wsaw:Action="urn:createPstnRange"/>
+            <wsdl:output message="ns:createPstnRangeResponse" wsaw:Action="urn:createPstnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnRange">
+            <wsdl:input message="ns:updatePlmnRangeRequest" wsaw:Action="urn:updatePlmnRange"/>
+            <wsdl:output message="ns:updatePlmnRangeResponse" wsaw:Action="urn:updatePlmnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="listGatewaysInGatewayGroup">
+            <wsdl:input message="ns:listGatewaysInGatewayGroupRequest" wsaw:Action="urn:listGatewaysInGatewayGroup"/>
+            <wsdl:output message="ns:listGatewaysInGatewayGroupResponse" wsaw:Action="urn:listGatewaysInGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToTrunk">
+            <wsdl:input message="ns:unassignCallBarringToTrunkRequest" wsaw:Action="urn:unassignCallBarringToTrunk"/>
+            <wsdl:output message="ns:unassignCallBarringToTrunkResponse" wsaw:Action="urn:unassignCallBarringToTrunkResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePBXTrunking">
+            <wsdl:input message="ns:updatePBXTrunkingRequest" wsaw:Action="urn:updatePBXTrunking"/>
+            <wsdl:output message="ns:updatePBXTrunkingResponse" wsaw:Action="urn:updatePBXTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnPstn">
+            <wsdl:input message="ns:getPlmnPstnRequest" wsaw:Action="urn:getPlmnPstn"/>
+            <wsdl:output message="ns:getPlmnPstnResponse" wsaw:Action="urn:getPlmnPstnResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToTrunk">
+            <wsdl:input message="ns:assignCallBarringToTrunkRequest" wsaw:Action="urn:assignCallBarringToTrunk"/>
+            <wsdl:output message="ns:assignCallBarringToTrunkResponse" wsaw:Action="urn:assignCallBarringToTrunkResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="assignPlmnPstnToAdmtiveDomain">
+            <wsdl:input message="ns:assignPlmnPstnToAdmtiveDomainRequest" wsaw:Action="urn:assignPlmnPstnToAdmtiveDomain"/>
+            <wsdl:output message="ns:assignPlmnPstnToAdmtiveDomainResponse" wsaw:Action="urn:assignPlmnPstnToAdmtiveDomainResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPstn">
+            <wsdl:input message="ns:getPstnRequest" wsaw:Action="urn:getPstn"/>
+            <wsdl:output message="ns:getPstnResponse" wsaw:Action="urn:getPstnResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <wsdl:input message="ns:loginRequest" wsaw:Action="urn:login"/>
+            <wsdl:output message="ns:loginResponse" wsaw:Action="urn:loginResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <wsdl:input message="ns:getVersionRequest" wsaw:Action="urn:getVersion"/>
+            <wsdl:output message="ns:getVersionResponse" wsaw:Action="urn:getVersionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnRange">
+            <wsdl:input message="ns:getPlmnRangeRequest" wsaw:Action="urn:getPlmnRange"/>
+            <wsdl:output message="ns:getPlmnRangeResponse" wsaw:Action="urn:getPlmnRangeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getForwarding">
+            <wsdl:input message="ns:getForwardingRequest" wsaw:Action="urn:getForwarding"/>
+            <wsdl:output message="ns:getForwardingResponse" wsaw:Action="urn:getForwardingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getCallBarring">
+            <wsdl:input message="ns:getCallBarringRequest" wsaw:Action="urn:getCallBarring"/>
+            <wsdl:output message="ns:getCallBarringResponse" wsaw:Action="urn:getCallBarringResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCallBarring">
+            <wsdl:input message="ns:deleteCallBarringRequest" wsaw:Action="urn:deleteCallBarring"/>
+            <wsdl:output message="ns:deleteCallBarringResponse" wsaw:Action="urn:deleteCallBarringResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToAdmtiveDomain">
+            <wsdl:input message="ns:assignPstnToAdmtiveDomainRequest" wsaw:Action="urn:assignPstnToAdmtiveDomain"/>
+            <wsdl:output message="ns:assignPstnToAdmtiveDomainResponse" wsaw:Action="urn:assignPstnToAdmtiveDomainResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="unAssignPstnToPbxTrunking">
+            <wsdl:input message="ns:unAssignPstnToPbxTrunkingRequest" wsaw:Action="urn:unAssignPstnToPbxTrunking"/>
+            <wsdl:output message="ns:unAssignPstnToPbxTrunkingResponse" wsaw:Action="urn:unAssignPstnToPbxTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateGatewayGroup">
+            <wsdl:input message="ns:updateGatewayGroupRequest" wsaw:Action="urn:updateGatewayGroup"/>
+            <wsdl:output message="ns:updateGatewayGroupResponse" wsaw:Action="urn:updateGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGatewayGroup">
+            <wsdl:input message="ns:deleteGatewayGroupRequest" wsaw:Action="urn:deleteGatewayGroup"/>
+            <wsdl:output message="ns:deleteGatewayGroupResponse" wsaw:Action="urn:deleteGatewayGroupResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToCommunity">
+            <wsdl:input message="ns:unassignCallBarringToCommunityRequest" wsaw:Action="urn:unassignCallBarringToCommunity"/>
+            <wsdl:output message="ns:unassignCallBarringToCommunityResponse" wsaw:Action="urn:unassignCallBarringToCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createPBXTrunking">
+            <wsdl:input message="ns:createPBXTrunkingRequest" wsaw:Action="urn:createPBXTrunking"/>
+            <wsdl:output message="ns:createPBXTrunkingResponse" wsaw:Action="urn:createPBXTrunkingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="createGateway">
+            <wsdl:input message="ns:createGatewayRequest" wsaw:Action="urn:createGateway"/>
+            <wsdl:output message="ns:createGatewayResponse" wsaw:Action="urn:createGatewayResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToCommunity">
+            <wsdl:input message="ns:assignCallBarringToCommunityRequest" wsaw:Action="urn:assignCallBarringToCommunity"/>
+            <wsdl:output message="ns:assignCallBarringToCommunityResponse" wsaw:Action="urn:assignCallBarringToCommunityResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateForwarding">
+            <wsdl:input message="ns:updateForwardingRequest" wsaw:Action="urn:updateForwarding"/>
+            <wsdl:output message="ns:updateForwardingResponse" wsaw:Action="urn:updateForwardingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstn">
+            <wsdl:input message="ns:updatePstnRequest" wsaw:Action="urn:updatePstn"/>
+            <wsdl:output message="ns:updatePstnResponse" wsaw:Action="urn:updatePstnResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGateway">
+            <wsdl:input message="ns:deleteGatewayRequest" wsaw:Action="urn:deleteGateway"/>
+            <wsdl:output message="ns:deleteGatewayResponse" wsaw:Action="urn:deleteGatewayResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteForwarding">
+            <wsdl:input message="ns:deleteForwardingRequest" wsaw:Action="urn:deleteForwarding"/>
+            <wsdl:output message="ns:deleteForwardingResponse" wsaw:Action="urn:deleteForwardingResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGateway">
+            <wsdl:input message="ns:getGatewayRequest" wsaw:Action="urn:getGateway"/>
+            <wsdl:output message="ns:getGatewayResponse" wsaw:Action="urn:getGatewayResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="RoutingCommunitySoap11Binding" type="ns:RoutingCommunityPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="logout">
+            <soap:operation soapAction="urn:logout" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createForwarding">
+            <soap:operation soapAction="urn:createForwarding" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isConnected">
+            <soap:operation soapAction="urn:isConnected" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRoutingCommunity">
+            <soap:operation soapAction="urn:updateRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToPbxTrunking">
+            <soap:operation soapAction="urn:assignPstnToPbxTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setGatewaysInGatewayGroup">
+            <soap:operation soapAction="urn:setGatewaysInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPBXTrunking">
+            <soap:operation soapAction="urn:getPBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGatewayGroup">
+            <soap:operation soapAction="urn:createGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCallBarring">
+            <soap:operation soapAction="urn:createCallBarring" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePstnRange">
+            <soap:operation soapAction="urn:deletePstnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGateway">
+            <soap:operation soapAction="urn:updateGateway" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePlmnRange">
+            <soap:operation soapAction="urn:deletePlmnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setContext">
+            <soap:operation soapAction="urn:setContext" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePBXTrunking">
+            <soap:operation soapAction="urn:deletePBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRoutingCommunity">
+            <soap:operation soapAction="urn:getRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setOneGatewayInGatewayGroup">
+            <soap:operation soapAction="urn:setOneGatewayInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setCommunityContext">
+            <soap:operation soapAction="urn:setCommunityContext" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createRoutingCommunity">
+            <soap:operation soapAction="urn:createRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateCallBarring">
+            <soap:operation soapAction="urn:updateCallBarring" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteRoutingCommunity">
+            <soap:operation soapAction="urn:deleteRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstnRange">
+            <soap:operation soapAction="urn:updatePstnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnPstn">
+            <soap:operation soapAction="urn:updatePlmnPstn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGatewayGroup">
+            <soap:operation soapAction="urn:getGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPlmnRange">
+            <soap:operation soapAction="urn:createPlmnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstnRange">
+            <soap:operation soapAction="urn:getPstnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnRange">
+            <soap:operation soapAction="urn:updatePlmnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPstnRange">
+            <soap:operation soapAction="urn:createPstnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listGatewaysInGatewayGroup">
+            <soap:operation soapAction="urn:listGatewaysInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToTrunk">
+            <soap:operation soapAction="urn:unassignCallBarringToTrunk" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePBXTrunking">
+            <soap:operation soapAction="urn:updatePBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToTrunk">
+            <soap:operation soapAction="urn:assignCallBarringToTrunk" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnPstn">
+            <soap:operation soapAction="urn:getPlmnPstn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPlmnPstnToAdmtiveDomain">
+            <soap:operation soapAction="urn:assignPlmnPstnToAdmtiveDomain" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstn">
+            <soap:operation soapAction="urn:getPstn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <soap:operation soapAction="urn:getVersion" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <soap:operation soapAction="urn:login" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnRange">
+            <soap:operation soapAction="urn:getPlmnRange" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getForwarding">
+            <soap:operation soapAction="urn:getForwarding" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCallBarring">
+            <soap:operation soapAction="urn:getCallBarring" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCallBarring">
+            <soap:operation soapAction="urn:deleteCallBarring" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToAdmtiveDomain">
+            <soap:operation soapAction="urn:assignPstnToAdmtiveDomain" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unAssignPstnToPbxTrunking">
+            <soap:operation soapAction="urn:unAssignPstnToPbxTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGatewayGroup">
+            <soap:operation soapAction="urn:updateGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGatewayGroup">
+            <soap:operation soapAction="urn:deleteGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToCommunity">
+            <soap:operation soapAction="urn:unassignCallBarringToCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGateway">
+            <soap:operation soapAction="urn:createGateway" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPBXTrunking">
+            <soap:operation soapAction="urn:createPBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToCommunity">
+            <soap:operation soapAction="urn:assignCallBarringToCommunity" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateForwarding">
+            <soap:operation soapAction="urn:updateForwarding" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstn">
+            <soap:operation soapAction="urn:updatePstn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteForwarding">
+            <soap:operation soapAction="urn:deleteForwarding" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGateway">
+            <soap:operation soapAction="urn:deleteGateway" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGateway">
+            <soap:operation soapAction="urn:getGateway" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RoutingCommunitySoap12Binding" type="ns:RoutingCommunityPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="logout">
+            <soap12:operation soapAction="urn:logout" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createForwarding">
+            <soap12:operation soapAction="urn:createForwarding" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isConnected">
+            <soap12:operation soapAction="urn:isConnected" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRoutingCommunity">
+            <soap12:operation soapAction="urn:updateRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToPbxTrunking">
+            <soap12:operation soapAction="urn:assignPstnToPbxTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setGatewaysInGatewayGroup">
+            <soap12:operation soapAction="urn:setGatewaysInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPBXTrunking">
+            <soap12:operation soapAction="urn:getPBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGatewayGroup">
+            <soap12:operation soapAction="urn:createGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCallBarring">
+            <soap12:operation soapAction="urn:createCallBarring" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePstnRange">
+            <soap12:operation soapAction="urn:deletePstnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGateway">
+            <soap12:operation soapAction="urn:updateGateway" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePlmnRange">
+            <soap12:operation soapAction="urn:deletePlmnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setContext">
+            <soap12:operation soapAction="urn:setContext" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePBXTrunking">
+            <soap12:operation soapAction="urn:deletePBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRoutingCommunity">
+            <soap12:operation soapAction="urn:getRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setOneGatewayInGatewayGroup">
+            <soap12:operation soapAction="urn:setOneGatewayInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setCommunityContext">
+            <soap12:operation soapAction="urn:setCommunityContext" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createRoutingCommunity">
+            <soap12:operation soapAction="urn:createRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateCallBarring">
+            <soap12:operation soapAction="urn:updateCallBarring" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteRoutingCommunity">
+            <soap12:operation soapAction="urn:deleteRoutingCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstnRange">
+            <soap12:operation soapAction="urn:updatePstnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnPstn">
+            <soap12:operation soapAction="urn:updatePlmnPstn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGatewayGroup">
+            <soap12:operation soapAction="urn:getGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPlmnRange">
+            <soap12:operation soapAction="urn:createPlmnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstnRange">
+            <soap12:operation soapAction="urn:getPstnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnRange">
+            <soap12:operation soapAction="urn:updatePlmnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPstnRange">
+            <soap12:operation soapAction="urn:createPstnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listGatewaysInGatewayGroup">
+            <soap12:operation soapAction="urn:listGatewaysInGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToTrunk">
+            <soap12:operation soapAction="urn:unassignCallBarringToTrunk" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePBXTrunking">
+            <soap12:operation soapAction="urn:updatePBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToTrunk">
+            <soap12:operation soapAction="urn:assignCallBarringToTrunk" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnPstn">
+            <soap12:operation soapAction="urn:getPlmnPstn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPlmnPstnToAdmtiveDomain">
+            <soap12:operation soapAction="urn:assignPlmnPstnToAdmtiveDomain" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstn">
+            <soap12:operation soapAction="urn:getPstn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <soap12:operation soapAction="urn:getVersion" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <soap12:operation soapAction="urn:login" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnRange">
+            <soap12:operation soapAction="urn:getPlmnRange" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getForwarding">
+            <soap12:operation soapAction="urn:getForwarding" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCallBarring">
+            <soap12:operation soapAction="urn:getCallBarring" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCallBarring">
+            <soap12:operation soapAction="urn:deleteCallBarring" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToAdmtiveDomain">
+            <soap12:operation soapAction="urn:assignPstnToAdmtiveDomain" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unAssignPstnToPbxTrunking">
+            <soap12:operation soapAction="urn:unAssignPstnToPbxTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGatewayGroup">
+            <soap12:operation soapAction="urn:updateGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGatewayGroup">
+            <soap12:operation soapAction="urn:deleteGatewayGroup" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToCommunity">
+            <soap12:operation soapAction="urn:unassignCallBarringToCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGateway">
+            <soap12:operation soapAction="urn:createGateway" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPBXTrunking">
+            <soap12:operation soapAction="urn:createPBXTrunking" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToCommunity">
+            <soap12:operation soapAction="urn:assignCallBarringToCommunity" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateForwarding">
+            <soap12:operation soapAction="urn:updateForwarding" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstn">
+            <soap12:operation soapAction="urn:updatePstn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteForwarding">
+            <soap12:operation soapAction="urn:deleteForwarding" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGateway">
+            <soap12:operation soapAction="urn:deleteGateway" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGateway">
+            <soap12:operation soapAction="urn:getGateway" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="RoutingCommunityHttpBinding" type="ns:RoutingCommunityPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="logout">
+            <http:operation location="logout"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createForwarding">
+            <http:operation location="createForwarding"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isConnected">
+            <http:operation location="isConnected"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateRoutingCommunity">
+            <http:operation location="updateRoutingCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToPbxTrunking">
+            <http:operation location="assignPstnToPbxTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setGatewaysInGatewayGroup">
+            <http:operation location="setGatewaysInGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPBXTrunking">
+            <http:operation location="getPBXTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGatewayGroup">
+            <http:operation location="createGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createCallBarring">
+            <http:operation location="createCallBarring"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePstnRange">
+            <http:operation location="deletePstnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGateway">
+            <http:operation location="updateGateway"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePlmnRange">
+            <http:operation location="deletePlmnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setContext">
+            <http:operation location="setContext"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deletePBXTrunking">
+            <http:operation location="deletePBXTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRoutingCommunity">
+            <http:operation location="getRoutingCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setOneGatewayInGatewayGroup">
+            <http:operation location="setOneGatewayInGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setCommunityContext">
+            <http:operation location="setCommunityContext"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createRoutingCommunity">
+            <http:operation location="createRoutingCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateCallBarring">
+            <http:operation location="updateCallBarring"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteRoutingCommunity">
+            <http:operation location="deleteRoutingCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstnRange">
+            <http:operation location="updatePstnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnPstn">
+            <http:operation location="updatePlmnPstn"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGatewayGroup">
+            <http:operation location="getGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPlmnRange">
+            <http:operation location="createPlmnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstnRange">
+            <http:operation location="getPstnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePlmnRange">
+            <http:operation location="updatePlmnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPstnRange">
+            <http:operation location="createPstnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="listGatewaysInGatewayGroup">
+            <http:operation location="listGatewaysInGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToTrunk">
+            <http:operation location="unassignCallBarringToTrunk"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePBXTrunking">
+            <http:operation location="updatePBXTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToTrunk">
+            <http:operation location="assignCallBarringToTrunk"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnPstn">
+            <http:operation location="getPlmnPstn"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPlmnPstnToAdmtiveDomain">
+            <http:operation location="assignPlmnPstnToAdmtiveDomain"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPstn">
+            <http:operation location="getPstn"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <http:operation location="getVersion"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="login">
+            <http:operation location="login"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPlmnRange">
+            <http:operation location="getPlmnRange"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getForwarding">
+            <http:operation location="getForwarding"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCallBarring">
+            <http:operation location="getCallBarring"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCallBarring">
+            <http:operation location="deleteCallBarring"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignPstnToAdmtiveDomain">
+            <http:operation location="assignPstnToAdmtiveDomain"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unAssignPstnToPbxTrunking">
+            <http:operation location="unAssignPstnToPbxTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateGatewayGroup">
+            <http:operation location="updateGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGatewayGroup">
+            <http:operation location="deleteGatewayGroup"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="unassignCallBarringToCommunity">
+            <http:operation location="unassignCallBarringToCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createGateway">
+            <http:operation location="createGateway"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPBXTrunking">
+            <http:operation location="createPBXTrunking"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="assignCallBarringToCommunity">
+            <http:operation location="assignCallBarringToCommunity"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateForwarding">
+            <http:operation location="updateForwarding"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updatePstn">
+            <http:operation location="updatePstn"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteForwarding">
+            <http:operation location="deleteForwarding"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteGateway">
+            <http:operation location="deleteGateway"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGateway">
+            <http:operation location="getGateway"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="RoutingCommunity">
+        <wsdl:port name="RoutingCommunityHttpSoap11Endpoint" binding="ns:RoutingCommunitySoap11Binding">
+            <soap:address location="http://192.168.135.125:8078/axis2/services/RoutingCommunity.RoutingCommunityHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="RoutingCommunityHttpSoap12Endpoint" binding="ns:RoutingCommunitySoap12Binding">
+            <soap12:address location="http://192.168.135.125:8078/axis2/services/RoutingCommunity.RoutingCommunityHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="RoutingCommunityHttpEndpoint" binding="ns:RoutingCommunityHttpBinding">
+            <http:address location="http://192.168.135.125:8078/axis2/services/RoutingCommunity.RoutingCommunityHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

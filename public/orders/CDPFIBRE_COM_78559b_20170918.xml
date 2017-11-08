@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="http://completel.com/CommandeClientTHD/CommandeClient">
+<Commande>
+<En-tete>
+<Commande numCommande="CDP3" dateCommande="2017-09-18T12:12:18+02:00" typeCommande="C"/>
+<ClientDemandeur codeClient="CODEPI-FIBRE"/>
+<ClientFacture codeClient="CODEPI-FIBRE"/>
+<ClientFinal codeClient="CDP9BF9989E35" civilite="M" nom="DJIM" prenom="KHOULIO" numContact="0629846688" email="k.khoulio@dwlcallcenter.com" typeClient="PROF"/>
+<Acces idAccesPrise="06LQKH" >
+<adresse numeroDansVoie="266" libelleVoie="AVE DAUMESNIL" codeINSEE="75112" codePostal="75012" commune="PARIS"/>
+<scheduleid>VPY     17/09/251</scheduleid>
+</Acces>
+</En-tete>
+<Detail>
+<Service>
+<FIBRE typeRaccordement="REACI" codeAction="C">
+<CommentaireRaccordement>Commande de test contact RACC: M LOMBARDI, tel: 0629846688 DIGICODE: 5984</CommentaireRaccordement>
+</FIBRE>
+<Data codeAction="C">
+<FluxData idFlux="1" codeAction="C" typeRaccordement="FIBRE">
+<EquipementRef codeAction="C" numSequence="1"/>
+<Option codeAction="C" option="BASIC" valeur="NET30M"/>
+</FluxData>
+</Data>
+</Service>
+<Equipement>
+<IAD numSequence="1" codeEAN13="3425160331516" numeroSerie="" codeAction="C" codeActionOptionWifi="C">
+<typeLivraison></typeLivraison>
+</IAD>
+</Equipement>
+</Detail>
+</Commande>
+</Message>
+
